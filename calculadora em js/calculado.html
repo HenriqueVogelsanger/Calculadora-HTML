@@ -12,6 +12,7 @@
         <h1>Calculadora HTML</h1>
         <div class="calculadora">
             <p id="resultado"></p>
+            <p id="resultado2"></p>
             <table>
                 <tr>
                     <td><button class="botao" onclick="limpar()">C</button></td>
@@ -52,11 +53,12 @@
     * {
         margin: 0;
         padding: 0;
+        overflow-y: hidden;
     }
 
     .tudo {
-        background-image: linear-gradient(45deg, green, green, purple);
-        height: 100vw;
+        background-image: linear-gradient(45deg, blue, red);
+        height: 51.5vw;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
         color: antiquewhite;
@@ -91,13 +93,23 @@
         color: black;
         font-size: 20px;
         text-align: right;
-        padding: 9px;
-        margin: 4px;
+        padding: 10px;
+       
     }
-
+#resultado2{
+    background-color: rgb(245, 236, 236);
+        width: 200px;
+        height: 26px;
+        color: gray;
+        font-size: 20px;
+        text-align: right;
+        padding: 10px;
+       
+}
     .botao:hover {
         background-color: rgb(34, 31, 31);
     }
+
 </style>
 <script>
     function inserir(numero) {
@@ -115,11 +127,12 @@
         let resultado = document.getElementById("resultado").innerHTML;
         if (resultado) {
             document.getElementById("resultado").innerHTML = eval(resultado);
+            document.getElementById("resultado2").innerHTML = resultado;
         }
             else{
                 document.getElementById("resultado").innerHTML = ""
             }
-
+  
     }
 </script>
 
