@@ -15,8 +15,8 @@
             <p id="resultado2"></p>
             <table>
                 <tr>
-                    <td><button class="botao" onclick="limpar()">C</button></td>
-                    <td><button class="botao" onclick="voltar()">!</button>
+                    <td><button class="botao" onclick="limpar()">AC</button></td>
+                    <td><button class="botao" onclick="voltar()">DEL</button>
                     </td>
                     <td><button class="botao" onclick="inserir('/')">/</button></td>
                     <td><button class="botao" onclick="inserir('*')">X</button></td>
@@ -57,7 +57,7 @@
     }
 
     .tudo {
-        background-image: linear-gradient(45deg, blue, red);
+        background-image: linear-gradient(45deg, rgb(255, 166, 0), rgb(0, 38, 255));
         height: 51.5vw;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
@@ -75,6 +75,7 @@
         padding: 10px;
     }
 
+    
     .botao {
         width: 50px;
         height: 50px;
@@ -118,10 +119,12 @@
     }
     function limpar(){
         document.getElementById("resultado").innerHTML = " ";
+        document.getElementById("resultado").innerHTML = " ";
     }
     function voltar(){
      let resultado = document.getElementById("resultado").innerHTML ;
      document.getElementById("resultado").innerHTML = resultado.substring(0, resultado.length -1);
+     document.getElementById("resultado2").innerHTML = " ";
     }
     function calcular(){
         let resultado = document.getElementById("resultado").innerHTML;
