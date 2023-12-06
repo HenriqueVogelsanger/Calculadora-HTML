@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <div class="tudo">
+        <h1>Calculadora HTML</h1>
+        <div class="calculadora">
+            <p id="resultado"></p>
+            <table>
+                <tr>
+                    <td><button class="botao" onclick="limpar()">C</button></td>
+                    <td><button class="botao" onclick="voltar()">!</button>
+                    </td>
+                    <td><button class="botao" onclick="inserir('/')">/</button></td>
+                    <td><button class="botao" onclick="inserir('*')">X</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="inserir('7')">7</button></td>
+                    <td><button class="botao" onclick="inserir('8')">8</button></td>
+                    <td><button class="botao" onclick="inserir('9')">9</button></td>
+                    <td><button class="botao" onclick="inserir('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="inserir('4')">4</button></td>
+                    <td><button class="botao" onclick="inserir('5')">5</button></td>
+                    <td><button class="botao" onclick="inserir('6')">6</button></td>
+                    <td rowspan="2"><button style="height: 106px" class="botao" onclick="inserir('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="inserir('1')">1</button></td>
+                    <td><button class="botao" onclick="inserir('2')">2</button></td>
+                    <td><button class="botao" onclick="inserir('3')">3</button></td>
+
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="inserir('0')">0</button></td>
+                    <td><button class="botao" onclick="inserir('.')">.</button></td>
+                    <td colspan="2"><button style="width: 106px" class="botao" onclick="calcular()" >=</button></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .tudo {
+        background-image: linear-gradient(45deg, green, green, purple);
+        height: 100vw;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        color: antiquewhite;
+    }
+
+    .calculadora {
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: black;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .botao {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        cursor: pointer;
+        margin: 2px;
+        background-color: rgb(54, 49, 49);
+        border: none;
+        color: white;
+    }
+
+    #resultado {
+        background-color: rgb(245, 236, 236);
+        width: 200px;
+        height: 26px;
+        color: black;
+        font-size: 20px;
+        text-align: right;
+        padding: 9px;
+        margin: 4px;
+    }
+
+    .botao:hover {
+        background-color: rgb(34, 31, 31);
+    }
+</style>
+<script>
+    function inserir(numero) {
+        let num = document.getElementById("resultado").innerHTML;
+        document.getElementById("resultado").innerHTML = num + numero;
+    }
+    function limpar(){
+        document.getElementById("resultado").innerHTML = " ";
+    }
+    function voltar(){
+     let resultado = document.getElementById("resultado").innerHTML ;
+     document.getElementById("resultado").innerHTML = resultado.substring(0, resultado.length -1);
+    }
+    function calcular(){
+        let resultado = document.getElementById("resultado").innerHTML;
+        if (resultado) {
+            document.getElementById("resultado").innerHTML = eval(resultado);
+        }
+            else{
+                document.getElementById("resultado").innerHTML = ""
+            }
+
+    }
+</script>
+
+</html>
