@@ -42,7 +42,7 @@
                 <tr>
                     <td><button class="botao" onclick="inserir('0')">0</button></td>
                     <td><button class="botao" onclick="inserir('.')">.</button></td>
-                    <td colspan="2"><button style="width: 106px" class="botao" onclick="calcular()" >=</button></td>
+                    <td colspan="2"><button style="width: 106px" class="botao" onclick="calcular()">=</button></td>
 
                 </tr>
             </table>
@@ -58,7 +58,7 @@
 
     .tudo {
         background-image: linear-gradient(45deg, rgb(255, 166, 0), rgb(0, 38, 255));
-        height: 51.5vw;
+        height: 53vw;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
         color: antiquewhite;
@@ -75,7 +75,7 @@
         padding: 10px;
     }
 
-    
+
     .botao {
         width: 50px;
         height: 50px;
@@ -95,48 +95,109 @@
         font-size: 20px;
         text-align: right;
         padding: 10px;
-       
+
     }
-#resultado2{
-    background-color: rgb(245, 236, 236);
+
+    #resultado2 {
+        background-color: rgb(245, 236, 236);
         width: 200px;
         height: 26px;
         color: gray;
         font-size: 20px;
         text-align: right;
         padding: 10px;
-       
-}
+
+    }
+
     .botao:hover {
         background-color: rgb(34, 31, 31);
     }
-
 </style>
 <script>
     function inserir(numero) {
         let num = document.getElementById("resultado").innerHTML;
         document.getElementById("resultado").innerHTML = num + numero;
     }
-    function limpar(){
+    function limpar() {
         document.getElementById("resultado").innerHTML = " ";
-        document.getElementById("resultado").innerHTML = " ";
+        document.getElementById("resultado2").innerHTML = " ";
     }
-    function voltar(){
-     let resultado = document.getElementById("resultado").innerHTML ;
-     document.getElementById("resultado").innerHTML = resultado.substring(0, resultado.length -1);
-     document.getElementById("resultado2").innerHTML = " ";
+    function voltar() {
+        let resultado = document.getElementById("resultado").innerHTML;
+        document.getElementById("resultado").innerHTML = resultado.substring(0, resultado.length - 1);
+        document.getElementById("resultado2").innerHTML = " ";
     }
-    function calcular(){
+    function calcular() {
         let resultado = document.getElementById("resultado").innerHTML;
         if (resultado) {
             document.getElementById("resultado").innerHTML = eval(resultado);
             document.getElementById("resultado2").innerHTML = resultado;
         }
-            else{
-                document.getElementById("resultado").innerHTML = ""
-            }
-  
+        else {
+            document.getElementById("resultado").innerHTML = ""
+        }
+
     }
+    document.addEventListener("keypress", function (event) {
+        if (event.key == "Enter") {
+            calcular();
+        }
+        if (event.key == "1") {
+            inserir(1);
+        }
+        if (event.key == "2") {
+            inserir(2);
+        }
+        if (event.key == "3") {
+            inserir(3);
+        }
+        if (event.key == "4") {
+            inserir(4);
+        }
+        if (event.key == "5") {
+            inserir(5);
+        }
+        if (event.key == "6") {
+            inserir(6);
+        }
+        if (event.key == "7") {
+            inserir(7);
+        }
+        if (event.key == "8") {
+            inserir(8);
+        }
+        if (event.key == "9") {
+            inserir(9);
+        }
+        if (event.key == "0") {
+            inserir(0);
+        }
+        if (event.key == "+") {
+            inserir("+");
+        }
+        if (event.key == "-") {
+            inserir("-");
+        }
+        if (event.key == "*") {
+            inserir("*");
+        }
+        if (event.key == "/") {
+            inserir("/");
+        }
+        if (event.key == "Backspace") {
+            voltar();
+        }
+        if (event.key == "c") {
+            limpar()
+        }
+        if (event.key == ".") {
+
+            inserir(".");
+
+
+
+        }
+    })
 </script>
 
 </html>
